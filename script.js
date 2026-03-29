@@ -3,8 +3,16 @@ function scanNetwork() {
   const loader = document.getElementById("loader");
   const result = document.getElementById("result");
 
+  if (!result) {
+    alert("Erreur: result introuvable");
+    return;
+  }
+
+  // reset affichage
   result.innerHTML = "";
-  loader.classList.remove("hidden");
+
+  // afficher loader si existe
+  if (loader) loader.classList.remove("hidden");
 
   setTimeout(() => {
 
@@ -39,7 +47,9 @@ function scanNetwork() {
       `;
     });
 
-    loader.classList.add("hidden");
+    // cacher loader si existe
+    if (loader) loader.classList.add("hidden");
+
     result.innerHTML = output;
 
   }, 2000);
