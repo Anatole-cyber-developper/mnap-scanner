@@ -15,24 +15,27 @@ function scanNetwork() {
       { operator: "SFR", type: "5G", signal: -72 },
       { operator: "Bouygues", type: "4G", signal: -95 }
     ];
+    let bars = "";
 
-    let output = "";
+let level = 1;
+if (net.signal > -80) level = 4;
+else if (net.signal > -90) level = 3;
+else if (net.signal > -100) level = 2;
 
-    networks.forEach(net => {
+for (let i = 1; i <= 4; i++) {
+  bars += `<div class="bar ${i <= level ? "active" : ""}"></div>`;
+}
 
-      let quality = "📶 Mauvais";
+output += `
+  <div class="card">
+    <h3>${net.operator}</h3>
+    <p>📡 ${net.type}</p>
+    <p>${net.signal} dBm</p>
+    <div class="signal">${bars}</div>
+  </div>
+`;
 
-      if (net.signal > -80) quality = "🔥 Excellent";
-      else if (net.signal > -90) quality = "👍 Bon";
 
-      output += `
-        <div class="card">
-          <h3>${net.operator}</h3>
-          <p>📡 Type: ${net.type}</p>
-          <p>📶 Signal: ${net.signal} dBm</p>
-          <p>${quality}</p>
-        </div>
-      `;
     });
 
     loader.classList.add("hidden");
