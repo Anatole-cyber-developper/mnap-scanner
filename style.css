@@ -58,3 +58,20 @@ button:hover {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.signal {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.bar {
+  width: 6px;
+  height: 10px;
+  background: #334155;
+  border-radius: 2px;
+}
+
+.bar.active {
+  background: #22c55e;
+}
