@@ -1,29 +1,42 @@
 function scanNetwork() {
 
-  const networks = [
-    { operator: "Orange", type: "4G", signal: -85 },
-    { operator: "SFR", type: "5G", signal: -72 },
-    { operator: "Bouygues", type: "4G", signal: -95 }
-  ];
+  const loader = document.getElementById("loader");
+  const result = document.getElementById("result");
 
-  let output = "";
+  // reset
+  result.innerHTML = "";
+  loader.classList.remove("hidden");
 
-  networks.forEach(net => {
+  // simulation scan (2 secondes)
+  setTimeout(() => {
 
-    let quality = "📶 Mauvais";
+    const networks = [
+      { operator: "Orange", type: "4G", signal: -85 },
+      { operator: "SFR", type: "5G", signal: -72 },
+      { operator: "Bouygues", type: "4G", signal: -95 }
+    ];
 
-    if (net.signal > -80) quality = "🔥 Excellent";
-    else if (net.signal > -90) quality = "👍 Bon";
+    let output = "";
 
-    output += `
-      <div class="card">
-        <h3>${net.operator}</h3>
-        <p>📡 Type: ${net.type}</p>
-        <p>📶 Signal: ${net.signal} dBm</p>
-        <p>${quality}</p>
-      </div>
-    `;
-  });
+    networks.forEach(net => {
 
-  document.getElementById("result").innerHTML = output;
+      let quality = "📶 Mauvais";
+
+      if (net.signal > -80) quality = "🔥 Excellent";
+      else if (net.signal > -90) quality = "👍 Bon";
+
+      output += `
+        <div class="card">
+          <h3>${net.operator}</h3>
+          <p>📡 Type: ${net.type}</p>
+          <p>📶 Signal: ${net.signal} dBm</p>
+          <p>${quality}</p>
+        </div>
+      `;
+    });
+
+    loader.classList.add("hidden");
+    result.innerHTML = output;
+
+  }, 2000);
 }
