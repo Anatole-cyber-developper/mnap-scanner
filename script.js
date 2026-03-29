@@ -43,3 +43,6 @@ output += `
 
   }, 2000);
 }
+function toggleHacker() {
+  document.body.classList.toggle("hacker");
+}
