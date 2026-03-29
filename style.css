@@ -31,7 +31,10 @@ button:hover {
   gap: 20px;
   margin-top: 30px;
   flex-wrap: wrap;
-  body.hacker {
+}
+
+/* ✅ MODE HACKER (corrigé) */
+body.hacker {
   background: black;
   color: #00ff00;
   font-family: monospace;
@@ -39,7 +42,6 @@ button:hover {
 
 .hacker .card {
   border: 1px solid #00ff00;
-}
 }
 
 .card {
@@ -49,6 +51,7 @@ button:hover {
   width: 200px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
+
 .loader {
   border: 6px solid #1e293b;
   border-top: 6px solid #3b82f6;
@@ -67,6 +70,7 @@ button:hover {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 .signal {
   display: flex;
   gap: 3px;
