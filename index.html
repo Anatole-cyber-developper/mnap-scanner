@@ -11,19 +11,25 @@
     <h1>📡 MNAP Scanner</h1>
 
     <button onclick="scanNetwork()">Lancer le scan</button>
-    <div id="loader" class="loader hidden"></div>
-    <div id="result" class="cards"></div>
-    <button onclick="toggleHacker()">Mode Hacker</button>
-    <iframe 
-  width="100%" 
-  height="200" 
-  style="border:0; margin-top:20px;"
-  loading="lazy"
-  allowfullscreen
-  src="https://maps.google.com/maps?q=Paris&t=&z=13&ie=UTF8&iwloc=&output=embed">
-</iframe>
 
+    <button onclick="toggleHacker()">Mode Hacker</button>
+
+    <div id="loader" class="loader hidden"></div>
+
+    <div id="result" class="cards"></div>
+
+    <iframe 
+      width="100%" 
+      height="200" 
+      style="border:0; margin-top:20px;"
+      loading="lazy"
+      allowfullscreen
+      src="https://maps.google.com/maps?q=Paris&t=&z=13&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+
+  </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
